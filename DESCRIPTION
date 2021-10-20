@@ -1,0 +1,23 @@
+Package: cgalaunay
+Title: Delaunay Triangulation of Planar Points with 'CGAL'
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Michael D.",
+           family = "Sumner",
+           role = c("aut", "cre"),
+           email = "mdsumner@gmail.com")
+Description: Delaunay triangulation for points with the Computational Geometry Algorithms Library ('CGAL'). 
+License: MIT + file LICENSE
+Encoding: UTF-8
+Language: es
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+LinkingTo: 
+    cpp11 (>= 0.2.3),
+    cgal4h,
+    BH
+SystemRequirements: 
+    C++11,
+    gmp,
+    mpfr

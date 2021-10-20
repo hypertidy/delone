@@ -1,0 +1,7 @@
+
+CXX_STD = CXX11
+
+## no inst/include but euclid has
+PKG_CPPFLAGS=-DCGAL_HEADER_ONLY -DCGAL_USE_GMPXX -DBOOST_NO_AUTO_PTR
+
+PKG_LIBS = -lmpfr -lgmp
