@@ -47,7 +47,9 @@ plot(x, y)
 polygon(cbind(x, y)[rbind(matrix(tri, 3L), NA), ])
 ```
 
-This suite hows speed comparisons. 
+This suite shows speed comparisons. 
+
+delone is the fastest because CGAL is the fastest freely available library for this. 
 
 ```{r benchmark}
 library(delone)
@@ -64,7 +66,7 @@ rbenchmark::benchmark(
   ## akima doesn't really belong
   #akima = akima::interpp(xy[,1], xy[,2], z = rep(0, n), xo = grid$x, yo = grid$y),
   deldir = deldir::deldir(xy[,1], xy[,2], suppressMsge = TRUE),
-  CGAL = delone::xy_tri(xy[,1], xy[,2]),
+  delone = delone::xy_tri(xy[,1], xy[,2]),
   geometry = geometry::delaunayn(xy, options = "Pp"),
   rgeos = rgeos::gDelaunayTriangulation(sp::SpatialPoints(xy)),
   RTriangle = RTriangle::triangulate(RTriangle::pslg(xy)),
@@ -78,6 +80,8 @@ rbenchmark::benchmark(
 )
 
 ```
+
+(There are commercial versions in other software, and Manifold.net is probably the beefiest and fastest of all.)
 
 
 ## Code of Conduct

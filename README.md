@@ -39,7 +39,10 @@ polygon(cbind(x, y)[rbind(matrix(tri, 3L), NA), ])
 
 <img src="man/figures/README-example-1.png" width="100%" />
 
-This suite hows speed comparisons.
+This suite shows speed comparisons.
+
+delone is the fastest because CGAL is the fastest freely available
+library for this.
 
 ``` r
 library(delone)
@@ -56,7 +59,7 @@ rbenchmark::benchmark(
   ## akima doesn't really belong
   #akima = akima::interpp(xy[,1], xy[,2], z = rep(0, n), xo = grid$x, yo = grid$y),
   deldir = deldir::deldir(xy[,1], xy[,2], suppressMsge = TRUE),
-  CGAL = delone::xy_tri(xy[,1], xy[,2]),
+  delone = delone::xy_tri(xy[,1], xy[,2]),
   geometry = geometry::delaunayn(xy, options = "Pp"),
   rgeos = rgeos::gDelaunayTriangulation(sp::SpatialPoints(xy)),
   RTriangle = RTriangle::triangulate(RTriangle::pslg(xy)),
@@ -69,14 +72,17 @@ rbenchmark::benchmark(
   columns = c('test', 'elapsed', 'relative', 'user.self', 'sys.self')
 )
 #>        test elapsed relative user.self sys.self
-#> 2      CGAL   0.137    1.000     0.137    0.000
-#> 5 RTriangle   0.597    4.358     0.572    0.023
-#> 7   tripack   0.702    5.124     0.703    0.000
-#> 3  geometry   0.774    5.650     0.730    0.044
-#> 6        sf   9.607   70.124     9.572    0.031
-#> 4     rgeos  15.803  115.350    15.711    0.087
-#> 1    deldir  39.887  291.146    39.798    0.080
+#> 2    delone   0.124    1.000     0.124    0.000
+#> 5 RTriangle   0.651    5.250     0.636    0.016
+#> 7   tripack   0.756    6.097     0.755    0.000
+#> 3  geometry   0.764    6.161     0.727    0.036
+#> 6        sf  10.956   88.355    10.927    0.022
+#> 4     rgeos  16.277  131.266    16.169    0.100
+#> 1    deldir  40.263  324.702    40.118    0.133
 ```
+
+(There are commercial versions in other software, and Manifold.net is
+probably the beefiest and fastest of all.)
 
 ## Code of Conduct
 
