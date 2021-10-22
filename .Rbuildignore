@@ -1,3 +1,4 @@
-^cgalaunay\.Rproj$
+^delone\.Rproj$
 ^\.Rproj\.user$
 ^configure.*$
+^src/Makevars$

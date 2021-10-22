@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Anticonf (tm) script by Jeroen Ooms (2020)
+# copied from thomasp85/euclid 2021-10-21 by mdsumner
 # This script will query 'pkg-config' for the required cflags and ldflags.
 # If pkg-config is unavailable or does not find the library, try setting
 # INCLUDE_DIR and LIB_DIR manually via e.g:

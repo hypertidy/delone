@@ -1,4 +1,4 @@
-Package: cgalaunay
+Package: delone
 Title: Delaunay Triangulation of Planar Points with 'CGAL'
 Version: 0.0.0.9000
 Authors@R: 

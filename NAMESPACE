@@ -2,4 +2,4 @@
 
 export(xy_tri)
 importFrom(Rcpp,sourceCpp)
-useDynLib(cgalaunay, .registration = TRUE)
+useDynLib(delone, .registration = TRUE)

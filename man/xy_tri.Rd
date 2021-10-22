@@ -15,3 +15,11 @@ xy_tri(x, y = NULL)
 \description{
 Title
 }
+\examples{
+x    <- c(2.3,3.0,7.0,1.0,3.0,8.0)
+y    <- c(2.3,3.0,2.0,5.0,8.0,9.0)
+
+tri <- xy_tri(x, y)
+plot(x, y)
+polygon(cbind(x, y)[rbind(matrix(idx, 3L), NA), ])
+}

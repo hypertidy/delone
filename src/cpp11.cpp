@@ -5,9 +5,9 @@
 #include "cpp11/declarations.hpp"
 #include <R_ext/Visibility.h>
 
-// cgalaunay.cpp
+// delone.cpp
 integers xy_tri_cpp(doubles x, doubles y);
-extern "C" SEXP _cgalaunay_xy_tri_cpp(SEXP x, SEXP y) {
+extern "C" SEXP _delone_xy_tri_cpp(SEXP x, SEXP y) {
   BEGIN_CPP11
     return cpp11::as_sexp(xy_tri_cpp(cpp11::as_cpp<cpp11::decay_t<doubles>>(x), cpp11::as_cpp<cpp11::decay_t<doubles>>(y)));
   END_CPP11
@@ -15,12 +15,12 @@ extern "C" SEXP _cgalaunay_xy_tri_cpp(SEXP x, SEXP y) {
 
 extern "C" {
 static const R_CallMethodDef CallEntries[] = {
-    {"_cgalaunay_xy_tri_cpp", (DL_FUNC) &_cgalaunay_xy_tri_cpp, 2},
+    {"_delone_xy_tri_cpp", (DL_FUNC) &_delone_xy_tri_cpp, 2},
     {NULL, NULL, 0}
 };
 }
 
-extern "C" attribute_visible void R_init_cgalaunay(DllInfo* dll){
+extern "C" attribute_visible void R_init_delone(DllInfo* dll){
   R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
   R_useDynamicSymbols(dll, FALSE);
   R_forceSymbols(dll, TRUE);
